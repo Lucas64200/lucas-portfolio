@@ -15,8 +15,8 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          background: "#0c0d0a",
-          color: "#f2f3ea",
+          background: "#15120e",
+          color: "#f8f3e8",
           padding: "80px",
           fontFamily: "sans-serif",
         }}
@@ -27,8 +27,8 @@ export default function Image() {
             fontSize: 28,
             textTransform: "uppercase",
             letterSpacing: 4,
-            color: "#cdfa4e",
-            fontWeight: 600,
+            color: "#f5c518",
+            fontWeight: 700,
           }}
         >
           {SITE_TAGLINE}
@@ -38,19 +38,21 @@ export default function Image() {
             display: "flex",
             marginTop: 24,
             fontSize: 64,
-            fontWeight: 600,
+            fontWeight: 800,
             lineHeight: 1.1,
             maxWidth: 900,
           }}
         >
-          Des outils IA qui automatisent le travail répétitif des entreprises.
+          On automatise le travail répétitif des entreprises à grands coups
+          d&apos;IA.
         </div>
         <div
           style={{
             display: "flex",
             marginTop: 40,
             fontSize: 28,
-            color: "#9a9d8c",
+            fontWeight: 700,
+            color: "#e63328",
           }}
         >
           {SITE_NAME}

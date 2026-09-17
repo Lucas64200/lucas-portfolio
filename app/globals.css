@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0c0d0a;
-  --bg-raised: #16180f;
-  --ink: #f2f3ea;
-  --ink-soft: #9a9d8c;
-  --neon: #cdfa4e;
-  --neon-foreground: #0c0d0a;
-  --card-border: #2a2d20;
+  --bg: #15120e;
+  --bg-raised: #201b14;
+  --ink: #f8f3e8;
+  --ink-soft: #b9ad98;
+  --ketchup: #e63328;
+  --ketchup-foreground: #f8f3e8;
+  --mayo: #f5c518;
+  --mayo-foreground: #15120e;
 }
 
 @theme inline {
@@ -15,16 +16,16 @@
   --color-bg-raised: var(--bg-raised);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-neon: var(--neon);
-  --color-neon-foreground: var(--neon-foreground);
-  --color-card-border: var(--card-border);
+  --color-ketchup: var(--ketchup);
+  --color-ketchup-foreground: var(--ketchup-foreground);
+  --color-mayo: var(--mayo);
+  --color-mayo-foreground: var(--mayo-foreground);
   --font-sans: var(--font-jakarta);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-fraunces);
+  --font-display: var(--font-baloo);
 }
 
-/* This world is dark by commitment, not by prefers-color-scheme: a tech
-   agency surface at night, always. */
+/* This world is dark by commitment: a condiment-brand agency site at full
+   volume, not a light/dark toggle. */
 
 body {
   background: var(--bg);
@@ -33,14 +34,14 @@ body {
 }
 
 ::selection {
-  background: var(--neon);
-  color: var(--neon-foreground);
+  background: var(--ketchup);
+  color: var(--ketchup-foreground);
 }
 
 :focus-visible {
-  outline: 2px solid var(--neon);
+  outline: 3px solid var(--mayo);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 html {
@@ -66,12 +67,12 @@ html {
   background: color-mix(in srgb, var(--ink) 35%, transparent);
 }
 
-/* Hero focal moment: the headline builds in, then the badge spins up like a
-   seal locking onto the page. */
+/* Hero focal moment: the mascots bounce in and settle, then the tags
+   scatter into place like they were just squeezed onto the page. */
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(26px);
   }
   to {
     opacity: 1;
@@ -83,58 +84,61 @@ html {
   animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes badge-in {
+@keyframes squeeze-in {
   from {
     opacity: 0;
-    transform: scale(0.8) rotate(-20deg);
+    transform: scale(0.6) rotate(var(--rot, 0deg));
   }
   to {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(var(--rot, 0deg));
   }
 }
 
-.badge-in {
-  animation: badge-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 400ms;
+.squeeze-in {
+  animation: squeeze-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes spin-slow {
-  to {
-    transform: rotate(360deg);
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
-.spin-slow {
-  animation: spin-slow 14s linear infinite;
+.bob {
+  animation: bob 4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 /* Stagger reveal for list-like groups. */
 .stagger-item {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) rotate(var(--rot, 0deg));
   transition:
     opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--i, 0) * 80ms);
+  transition-delay: calc(var(--i, 0) * 90ms);
 }
 
 .scroll-group.is-visible .stagger-item {
   opacity: 1;
-  transform: none;
+  transform: rotate(var(--rot, 0deg));
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal,
-  .badge-in {
+  .squeeze-in {
     animation: none;
   }
-  .spin-slow {
+  .bob {
     animation: none;
   }
   .stagger-item {
     transition: none;
     opacity: 1;
-    transform: none;
+    transform: rotate(var(--rot, 0deg));
   }
 }

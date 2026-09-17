@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Geist_Mono, Fraunces } from "next/font/google";
+import { Plus_Jakarta_Sans, Baloo_2 } from "next/font/google";
 import { SITE_URL, SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION } from "@/lib/site";
 import "./globals.css";
 
@@ -8,17 +8,10 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const baloo = Baloo_2({
+  variable: "--font-baloo",
   subsets: ["latin"],
-});
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: "variable",
-  style: ["normal", "italic"],
-  axes: ["opsz", "SOFT", "WONK"],
+  weight: ["600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -44,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="fr"
-      className={`${plusJakarta.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} ${baloo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

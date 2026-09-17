@@ -4,15 +4,16 @@ import { useState, type FormEvent } from "react";
 import { GITHUB_PROFILE_URL } from "@/lib/github";
 import { GithubIcon, LinkedinIcon, MailIcon } from "@/components/icons";
 import ScrollGroup from "@/components/ScrollGroup";
+import Scallop from "@/components/Scallop";
 
 const CONTACT_EMAIL = "monvoisin.lucas@gmail.com";
-// TODO(Lucas): remplace par ton vrai lien LinkedIn.
+// TODO: remplace par le lien LinkedIn de l'agence (ou le tien).
 const LINKEDIN_URL = "https://www.linkedin.com/in/REMPLACE-MOI";
 
 type Status = "idle" | "sending" | "success" | "error";
 
 const inputClass =
-  "mt-1 w-full rounded-2xl border-2 border-card-border bg-bg px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-neon";
+  "mt-1 w-full rounded-2xl border-2 border-mayo-foreground/20 bg-mayo-foreground/5 px-4 py-3 text-sm text-mayo-foreground outline-none transition-colors placeholder:text-mayo-foreground/40 focus:border-mayo-foreground";
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -54,19 +55,20 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="px-6 py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl rounded-[2.5rem] bg-neon p-8 text-neon-foreground sm:p-14">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+    <section id="contact">
+      <Scallop topColor="var(--bg)" bottomColor="var(--mayo)" />
+      <div className="bg-mayo px-6 py-16 text-mayo-foreground sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <h2 className="font-display text-3xl font-semibold italic sm:text-4xl">
-              Un projet en tête ?
+            <h2 className="font-display text-4xl font-extrabold sm:text-5xl">
+              On papote ?
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed opacity-80">
               Un projet d&apos;automatisation ou d&apos;outil IA en tête ?
-              Discutons-en.
+              Écrivez-nous.
             </p>
 
-            <ScrollGroup className="mt-8 flex flex-col gap-3 text-sm font-semibold">
+            <ScrollGroup className="mt-8 flex flex-col gap-3 text-sm font-bold">
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 style={{ "--i": 0 } as React.CSSProperties}
@@ -100,19 +102,19 @@ export default function Contact() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="name" className="text-sm font-semibold">
+              <label htmlFor="name" className="text-sm font-bold">
                 Nom
               </label>
               <input id="name" name="name" type="text" required className={inputClass} />
             </div>
             <div>
-              <label htmlFor="email" className="text-sm font-semibold">
+              <label htmlFor="email" className="text-sm font-bold">
                 Email
               </label>
               <input id="email" name="email" type="email" required className={inputClass} />
             </div>
             <div>
-              <label htmlFor="message" className="text-sm font-semibold">
+              <label htmlFor="message" className="text-sm font-bold">
                 Message
               </label>
               <textarea
@@ -127,16 +129,16 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="rounded-full bg-bg px-7 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-full bg-bg px-7 py-3.5 text-sm font-bold text-ink transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {status === "sending" ? "Envoi..." : "Envoyer"}
             </button>
 
             {status === "success" && (
-              <p className="text-sm font-semibold">Message envoyé, merci !</p>
+              <p className="text-sm font-bold">Message envoyé, merci !</p>
             )}
             {status === "error" && (
-              <p className="text-sm font-semibold">{errorMessage}</p>
+              <p className="text-sm font-bold">{errorMessage}</p>
             )}
           </form>
         </div>

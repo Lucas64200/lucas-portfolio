@@ -1,48 +1,55 @@
-import OrbitBadge from "@/components/OrbitBadge";
+import MascotDuo from "@/components/MascotDuo";
+import Scallop from "@/components/Scallop";
 
 export default function Hero() {
   return (
-    <section id="top" className="px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
-      <div className="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[1fr_18rem]">
-        <div>
-          <h1 className="reveal max-w-2xl font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-7xl">
-            Des outils IA qui{" "}
-            <span className="italic text-neon">automatisent</span> le travail
-            répétitif des entreprises.
+    <section id="top">
+      <div className="px-6 pt-28 pb-16 sm:pt-36 sm:pb-20">
+        <div className="relative mx-auto max-w-4xl text-center">
+          <span
+            style={{ "--rot": "-8deg" } as React.CSSProperties}
+            className="squeeze-in absolute -top-6 left-0 hidden rotate-[-8deg] rounded-full bg-ketchup px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-ketchup-foreground sm:block [animation-delay:500ms]"
+          >
+            Automatisation
+          </span>
+          <span
+            style={{ "--rot": "6deg" } as React.CSSProperties}
+            className="squeeze-in absolute -top-2 right-0 hidden rotate-[6deg] rounded-full bg-mayo px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-mayo-foreground sm:block [animation-delay:650ms]"
+          >
+            Assistants IA
+          </span>
+
+          <h1 className="reveal font-display text-5xl font-extrabold leading-[1.05] text-ink sm:text-7xl">
+            On <span className="text-ketchup">automatise</span> le travail
+            répétitif de votre entreprise à grands coups d&apos;IA.
           </h1>
 
-          <p className="reveal mt-8 max-w-xl text-lg leading-relaxed text-ink-soft [animation-delay:120ms]">
-            Développeur indépendant spécialisé en IA appliquée :
-            automatisation de process métier et assistants sur mesure pour
-            équipes commerciales.
+          <p className="reveal mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft [animation-delay:120ms]">
+            Studio d&apos;automatisation IA : process métier automatisés et
+            assistants sur mesure pour équipes commerciales.
           </p>
 
-          <div className="reveal mt-10 flex flex-wrap gap-4 [animation-delay:220ms]">
-            <a
-              href="#projects"
-              className="rounded-full bg-neon px-7 py-3.5 text-sm font-semibold text-neon-foreground transition-transform hover:scale-105"
-            >
-              Voir mes projets
-            </a>
+          <div className="reveal mt-8 flex flex-wrap items-center justify-center gap-4 [animation-delay:220ms]">
             <a
               href="#contact"
-              className="rounded-full border-2 border-card-border px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:border-neon hover:text-neon"
+              className="rounded-full bg-ketchup px-7 py-3.5 text-sm font-bold text-ketchup-foreground transition-transform hover:scale-105"
             >
-              Me contacter
+              Démarrer un projet
+            </a>
+            <a
+              href="#missions"
+              className="rounded-full border-2 border-bg-raised px-7 py-3.5 text-sm font-bold text-ink transition-colors hover:border-mayo hover:text-mayo"
+            >
+              Nos réalisations
             </a>
           </div>
-        </div>
 
-        <div className="reveal flex flex-col items-center gap-6 [animation-delay:200ms] lg:items-end">
-          <OrbitBadge />
-          <div className="w-full rounded-3xl bg-neon p-6 text-neon-foreground sm:p-7">
-            <p className="font-display text-xl font-medium italic leading-snug">
-              Comprendre le process, automatiser sans perte de contrôle,
-              livrer un outil simple.
-            </p>
+          <div className="reveal mt-10 [animation-delay:300ms]">
+            <MascotDuo />
           </div>
         </div>
       </div>
+      <Scallop topColor="var(--bg)" bottomColor="var(--ketchup)" />
     </section>
   );
 }

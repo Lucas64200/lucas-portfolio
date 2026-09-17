@@ -13,15 +13,14 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#cdfa4e",
-          color: "#0c0d0a",
+          background: "#e63328",
+          color: "#f8f3e8",
           fontSize: 18,
-          fontWeight: 700,
-          fontStyle: "italic",
-          fontFamily: "serif",
+          fontWeight: 800,
+          fontFamily: "sans-serif",
         }}
       >
-        LM
+        KM
       </div>
     ),
     { ...size }

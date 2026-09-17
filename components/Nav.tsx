@@ -1,20 +1,26 @@
 const LINKS = [
-  { href: "#about", label: "Profil" },
-  { href: "#missions", label: "Missions" },
-  { href: "#projects", label: "Projets" },
+  { href: "#services", label: "Services" },
+  { href: "#missions", label: "Réalisations" },
+  { href: "#projects", label: "Outils" },
 ];
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-card-border bg-bg/90 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
-        <a href="#top" className="font-display text-xl font-semibold italic text-ink">
-          Lucas Monvoisin
+    <div className="sticky top-4 z-50 flex justify-center px-4">
+      <nav className="flex w-full max-w-3xl flex-wrap items-center justify-between gap-3 rounded-full border-2 border-bg-raised bg-bg/95 px-3 py-2 shadow-[0_8px_30px_rgba(0,0,0,0.4)] backdrop-blur">
+        <a
+          href="#top"
+          className="rounded-full bg-ketchup px-4 py-2 font-display text-lg font-bold text-ketchup-foreground"
+        >
+          Ketchup Mayo
         </a>
-        <ul className="hidden gap-8 text-sm font-medium text-ink-soft sm:flex">
+        <ul className="hidden gap-1 text-sm font-semibold text-ink sm:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="transition-colors hover:text-neon">
+              <a
+                href={link.href}
+                className="block rounded-full px-4 py-2 transition-colors hover:bg-bg-raised hover:text-mayo"
+              >
                 {link.label}
               </a>
             </li>
@@ -22,11 +28,11 @@ export default function Nav() {
         </ul>
         <a
           href="#contact"
-          className="rounded-full bg-neon px-5 py-2 text-sm font-semibold text-neon-foreground transition-transform hover:scale-105"
+          className="rounded-full bg-mayo px-4 py-2 text-sm font-bold text-mayo-foreground transition-transform hover:scale-105"
         >
           Contact
         </a>
       </nav>
-    </header>
+    </div>
   );
 }
