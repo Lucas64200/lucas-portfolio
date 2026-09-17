@@ -1,3 +1,5 @@
+import ScrollGroup from "@/components/ScrollGroup";
+
 type CaseStudy = {
   title: string;
   problem: string;
@@ -38,17 +40,22 @@ export default function CaseStudies() {
   return (
     <section id="missions" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
       <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
+        <span
+          aria-hidden
+          className="mr-3 inline-block h-2.5 w-2.5 rounded-[2px] bg-orange-600 align-middle dark:bg-orange-400"
+        />
         Types de missions
       </h2>
       <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
         Quelques exemples représentatifs du type de problèmes que je résous.
       </p>
 
-      <div className="mt-10 border-t border-zinc-200 dark:border-zinc-800">
-        {CASE_STUDIES.map((study) => (
+      <ScrollGroup className="mt-10 border-t border-zinc-200 dark:border-zinc-800">
+        {CASE_STUDIES.map((study, i) => (
           <div
             key={study.title}
-            className="group grid gap-4 border-b border-zinc-200 py-8 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-10 dark:border-zinc-800"
+            style={{ "--i": i } as React.CSSProperties}
+            className="stagger-item group grid gap-4 border-b border-zinc-200 py-8 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-10 dark:border-zinc-800"
           >
             <h3 className="font-display text-xl font-medium text-zinc-950 transition-colors group-hover:text-orange-700 dark:text-zinc-50 dark:group-hover:text-orange-400">
               {study.title}
@@ -75,7 +82,7 @@ export default function CaseStudies() {
             </dl>
           </div>
         ))}
-      </div>
+      </ScrollGroup>
     </section>
   );
 }

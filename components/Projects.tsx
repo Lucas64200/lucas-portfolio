@@ -1,5 +1,6 @@
 import { getGithubRepos, GITHUB_PROFILE_URL } from "@/lib/github";
 import { ArrowRightIcon, StarIcon } from "@/components/icons";
+import ScrollGroup from "@/components/ScrollGroup";
 
 export default async function Projects() {
   const repos = await getGithubRepos();
@@ -9,6 +10,10 @@ export default async function Projects() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
+            <span
+              aria-hidden
+              className="mr-3 inline-block h-2.5 w-2.5 rounded-[2px] bg-orange-600 align-middle dark:bg-orange-400"
+            />
             Projets GitHub
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
@@ -40,14 +45,15 @@ export default async function Projects() {
           pour le moment — ça arrive bientôt.
         </p>
       ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {repos.slice(0, 9).map((repo) => (
+        <ScrollGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {repos.slice(0, 9).map((repo, i) => (
             <a
               key={repo.id}
               href={repo.htmlUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col rounded-2xl border border-zinc-200 p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-lg hover:shadow-zinc-900/5 dark:border-zinc-800 dark:hover:border-zinc-600 dark:hover:shadow-black/40"
+              style={{ "--i": i } as React.CSSProperties}
+              className="stagger-item group flex flex-col rounded-2xl border border-zinc-200 p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-lg hover:shadow-zinc-900/5 dark:border-zinc-800 dark:hover:border-zinc-600 dark:hover:shadow-black/40"
             >
               <h3 className="font-display font-medium text-zinc-950 group-hover:text-orange-700 dark:text-zinc-50 dark:group-hover:text-orange-400">
                 {repo.name}
@@ -64,7 +70,7 @@ export default async function Projects() {
               </div>
             </a>
           ))}
-        </div>
+        </ScrollGroup>
       )}
     </section>
   );

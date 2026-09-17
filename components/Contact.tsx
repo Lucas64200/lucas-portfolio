@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { GITHUB_PROFILE_URL } from "@/lib/github";
 import { GithubIcon, LinkedinIcon, MailIcon } from "@/components/icons";
+import ScrollGroup from "@/components/ScrollGroup";
 
 const CONTACT_EMAIL = "monvoisin.lucas@gmail.com";
 // TODO(Lucas): remplace par ton vrai lien LinkedIn.
@@ -52,16 +53,21 @@ export default function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
       <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
+        <span
+          aria-hidden
+          className="mr-3 inline-block h-2.5 w-2.5 rounded-[2px] bg-orange-600 align-middle dark:bg-orange-400"
+        />
         Contact
       </h2>
       <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
         Un projet d&apos;automatisation ou d&apos;outil IA en tête ? Discutons-en.
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-3 text-sm">
+      <ScrollGroup className="mt-6 flex flex-wrap gap-3 text-sm">
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
+          style={{ "--i": 0 } as React.CSSProperties}
+          className="stagger-item inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
         >
           <MailIcon className="h-4 w-4" />
           {CONTACT_EMAIL}
@@ -70,7 +76,8 @@ export default function Contact() {
           href={LINKEDIN_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
+          style={{ "--i": 1 } as React.CSSProperties}
+          className="stagger-item inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
         >
           <LinkedinIcon className="h-4 w-4" />
           LinkedIn
@@ -79,12 +86,13 @@ export default function Contact() {
           href={GITHUB_PROFILE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
+          style={{ "--i": 2 } as React.CSSProperties}
+          className="stagger-item inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
         >
           <GithubIcon className="h-4 w-4" />
           GitHub
         </a>
-      </div>
+      </ScrollGroup>
 
       <form onSubmit={handleSubmit} className="mt-10 max-w-lg space-y-4">
         <div>
