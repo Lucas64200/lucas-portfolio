@@ -38,51 +38,72 @@ const CASE_STUDIES: CaseStudy[] = [
 
 export default function CaseStudies() {
   return (
-    <section id="missions" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
-      <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
-        <span
-          aria-hidden
-          className="mr-3 inline-block h-2.5 w-2.5 rounded-[2px] bg-orange-600 align-middle dark:bg-orange-400"
-        />
-        Types de missions
-      </h2>
-      <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
-        Quelques exemples représentatifs du type de problèmes que je résous.
-      </p>
+    <section id="missions" className="px-6 py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+          Types de missions
+        </h2>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft">
+          Quelques exemples représentatifs du type de problèmes que je résous.
+        </p>
 
-      <ScrollGroup className="mt-10 border-t border-zinc-200 dark:border-zinc-800">
-        {CASE_STUDIES.map((study, i) => (
-          <div
-            key={study.title}
-            style={{ "--i": i } as React.CSSProperties}
-            className="stagger-item group grid gap-4 border-b border-zinc-200 py-8 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-10 dark:border-zinc-800"
-          >
-            <h3 className="font-display text-xl font-medium text-zinc-950 transition-colors group-hover:text-orange-700 dark:text-zinc-50 dark:group-hover:text-orange-400">
-              {study.title}
-            </h3>
-            <dl className="grid gap-5 text-sm leading-6 text-zinc-600 sm:grid-cols-3 sm:gap-6 dark:text-zinc-400">
-              <div>
-                <dt className="text-xs font-medium tracking-wide text-zinc-400 dark:text-zinc-600">
-                  Problème
-                </dt>
-                <dd className="mt-1.5">{study.problem}</dd>
+        <ScrollGroup className="mt-10 grid gap-6 sm:grid-cols-3">
+          {CASE_STUDIES.map((study, i) => {
+            const featured = i === 1;
+            return (
+              <div
+                key={study.title}
+                style={{ "--i": i } as React.CSSProperties}
+                className={`stagger-item flex flex-col gap-5 rounded-3xl p-7 ${
+                  featured
+                    ? "bg-neon text-neon-foreground"
+                    : "border-2 border-card-border bg-bg-raised text-ink"
+                }`}
+              >
+                <h3 className="font-display text-2xl font-semibold">
+                  {study.title}
+                </h3>
+                <div>
+                  <p
+                    className={`text-xs font-semibold uppercase tracking-wide ${
+                      featured ? "text-neon-foreground/70" : "text-neon"
+                    }`}
+                  >
+                    Problème
+                  </p>
+                  <p className="mt-1.5 text-sm leading-6 opacity-90">
+                    {study.problem}
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className={`text-xs font-semibold uppercase tracking-wide ${
+                      featured ? "text-neon-foreground/70" : "text-neon"
+                    }`}
+                  >
+                    Solution
+                  </p>
+                  <p className="mt-1.5 text-sm leading-6 opacity-90">
+                    {study.solution}
+                  </p>
+                </div>
+                <div>
+                  <p
+                    className={`text-xs font-semibold uppercase tracking-wide ${
+                      featured ? "text-neon-foreground/70" : "text-neon"
+                    }`}
+                  >
+                    Résultat
+                  </p>
+                  <p className="mt-1.5 text-sm leading-6 opacity-90">
+                    {study.result}
+                  </p>
+                </div>
               </div>
-              <div>
-                <dt className="text-xs font-medium tracking-wide text-zinc-400 dark:text-zinc-600">
-                  Solution
-                </dt>
-                <dd className="mt-1.5">{study.solution}</dd>
-              </div>
-              <div>
-                <dt className="text-xs font-medium tracking-wide text-zinc-400 dark:text-zinc-600">
-                  Résultat
-                </dt>
-                <dd className="mt-1.5">{study.result}</dd>
-              </div>
-            </dl>
-          </div>
-        ))}
-      </ScrollGroup>
+            );
+          })}
+        </ScrollGroup>
+      </div>
     </section>
   );
 }

@@ -11,6 +11,9 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/REMPLACE-MOI";
 
 type Status = "idle" | "sending" | "success" | "error";
 
+const inputClass =
+  "mt-1 w-full rounded-2xl border-2 border-card-border bg-bg px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-neon";
+
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -51,106 +54,93 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
-      <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
-        <span
-          aria-hidden
-          className="mr-3 inline-block h-2.5 w-2.5 rounded-[2px] bg-orange-600 align-middle dark:bg-orange-400"
-        />
-        Contact
-      </h2>
-      <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
-        Un projet d&apos;automatisation ou d&apos;outil IA en tête ? Discutons-en.
-      </p>
+    <section id="contact" className="px-6 py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl rounded-[2.5rem] bg-neon p-8 text-neon-foreground sm:p-14">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <div>
+            <h2 className="font-display text-3xl font-semibold italic sm:text-4xl">
+              Un projet en tête ?
+            </h2>
+            <p className="mt-4 max-w-md text-base leading-relaxed opacity-80">
+              Un projet d&apos;automatisation ou d&apos;outil IA en tête ?
+              Discutons-en.
+            </p>
 
-      <ScrollGroup className="mt-6 flex flex-wrap gap-3 text-sm">
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          style={{ "--i": 0 } as React.CSSProperties}
-          className="stagger-item inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
-        >
-          <MailIcon className="h-4 w-4" />
-          {CONTACT_EMAIL}
-        </a>
-        <a
-          href={LINKEDIN_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ "--i": 1 } as React.CSSProperties}
-          className="stagger-item inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
-        >
-          <LinkedinIcon className="h-4 w-4" />
-          LinkedIn
-        </a>
-        <a
-          href={GITHUB_PROFILE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ "--i": 2 } as React.CSSProperties}
-          className="stagger-item inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
-        >
-          <GithubIcon className="h-4 w-4" />
-          GitHub
-        </a>
-      </ScrollGroup>
+            <ScrollGroup className="mt-8 flex flex-col gap-3 text-sm font-semibold">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                style={{ "--i": 0 } as React.CSSProperties}
+                className="stagger-item inline-flex items-center gap-2 hover:underline"
+              >
+                <MailIcon className="h-4 w-4" />
+                {CONTACT_EMAIL}
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ "--i": 1 } as React.CSSProperties}
+                className="stagger-item inline-flex items-center gap-2 hover:underline"
+              >
+                <LinkedinIcon className="h-4 w-4" />
+                LinkedIn
+              </a>
+              <a
+                href={GITHUB_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ "--i": 2 } as React.CSSProperties}
+                className="stagger-item inline-flex items-center gap-2 hover:underline"
+              >
+                <GithubIcon className="h-4 w-4" />
+                GitHub
+              </a>
+            </ScrollGroup>
+          </div>
 
-      <form onSubmit={handleSubmit} className="mt-10 max-w-lg space-y-4">
-        <div>
-          <label htmlFor="name" className="text-sm font-medium">
-            Nom
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none transition-colors focus:border-orange-600 focus:ring-2 focus:ring-orange-600/30 dark:border-zinc-700 dark:focus:border-orange-400 dark:focus:ring-orange-400/20"
-          />
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="name" className="text-sm font-semibold">
+                Nom
+              </label>
+              <input id="name" name="name" type="text" required className={inputClass} />
+            </div>
+            <div>
+              <label htmlFor="email" className="text-sm font-semibold">
+                Email
+              </label>
+              <input id="email" name="email" type="email" required className={inputClass} />
+            </div>
+            <div>
+              <label htmlFor="message" className="text-sm font-semibold">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={4}
+                className={inputClass}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="rounded-full bg-bg px-7 py-3.5 text-sm font-semibold text-ink transition-transform hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {status === "sending" ? "Envoi..." : "Envoyer"}
+            </button>
+
+            {status === "success" && (
+              <p className="text-sm font-semibold">Message envoyé, merci !</p>
+            )}
+            {status === "error" && (
+              <p className="text-sm font-semibold">{errorMessage}</p>
+            )}
+          </form>
         </div>
-        <div>
-          <label htmlFor="email" className="text-sm font-medium">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none transition-colors focus:border-orange-600 focus:ring-2 focus:ring-orange-600/30 dark:border-zinc-700 dark:focus:border-orange-400 dark:focus:ring-orange-400/20"
-          />
-        </div>
-        <div>
-          <label htmlFor="message" className="text-sm font-medium">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows={4}
-            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none transition-colors focus:border-orange-600 focus:ring-2 focus:ring-orange-600/30 dark:border-zinc-700 dark:focus:border-orange-400 dark:focus:ring-orange-400/20"
-          />
-        </div>
-
-        <button
-          type="submit"
-          disabled={status === "sending"}
-          className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:scale-[1.03] hover:bg-zinc-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
-        >
-          {status === "sending" ? "Envoi..." : "Envoyer"}
-        </button>
-
-        {status === "success" && (
-          <p className="text-sm text-green-600 dark:text-green-400">
-            Message envoyé, merci !
-          </p>
-        )}
-        {status === "error" && (
-          <p className="text-sm text-red-600 dark:text-red-400">
-            {errorMessage}
-          </p>
-        )}
-      </form>
+      </div>
     </section>
   );
 }
