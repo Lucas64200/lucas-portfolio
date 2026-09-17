@@ -37,39 +37,40 @@ const CASE_STUDIES: CaseStudy[] = [
 export default function CaseStudies() {
   return (
     <section id="missions" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
-      <h2 className="text-2xl font-bold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
+      <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
         Types de missions
       </h2>
       <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
         Quelques exemples représentatifs du type de problèmes que je résous.
       </p>
-      <div className="mt-10 grid gap-6 sm:grid-cols-3">
+
+      <div className="mt-10 border-t border-zinc-200 dark:border-zinc-800">
         {CASE_STUDIES.map((study) => (
           <div
             key={study.title}
-            className="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-800"
+            className="group grid gap-4 border-b border-zinc-200 py-8 sm:grid-cols-[minmax(0,220px)_1fr] sm:gap-10 dark:border-zinc-800"
           >
-            <h3 className="font-semibold text-zinc-950 dark:text-zinc-50">
+            <h3 className="font-display text-xl font-medium text-zinc-950 transition-colors group-hover:text-orange-700 dark:text-zinc-50 dark:group-hover:text-orange-400">
               {study.title}
             </h3>
-            <dl className="mt-4 space-y-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+            <dl className="grid gap-5 text-sm leading-6 text-zinc-600 sm:grid-cols-3 sm:gap-6 dark:text-zinc-400">
               <div>
-                <dt className="font-medium text-zinc-500 dark:text-zinc-500">
+                <dt className="text-xs font-medium tracking-wide text-zinc-400 dark:text-zinc-600">
                   Problème
                 </dt>
-                <dd>{study.problem}</dd>
+                <dd className="mt-1.5">{study.problem}</dd>
               </div>
               <div>
-                <dt className="font-medium text-zinc-500 dark:text-zinc-500">
+                <dt className="text-xs font-medium tracking-wide text-zinc-400 dark:text-zinc-600">
                   Solution
                 </dt>
-                <dd>{study.solution}</dd>
+                <dd className="mt-1.5">{study.solution}</dd>
               </div>
               <div>
-                <dt className="font-medium text-zinc-500 dark:text-zinc-500">
+                <dt className="text-xs font-medium tracking-wide text-zinc-400 dark:text-zinc-600">
                   Résultat
                 </dt>
-                <dd>{study.result}</dd>
+                <dd className="mt-1.5">{study.result}</dd>
               </div>
             </dl>
           </div>

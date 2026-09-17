@@ -12,7 +12,7 @@ const SKILLS = [
 export default function About() {
   return (
     <section id="about" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
-      <h2 className="text-2xl font-bold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
+      <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
         À propos
       </h2>
       <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
@@ -27,14 +27,14 @@ export default function About() {
         outil simple à utiliser au quotidien.
       </p>
       <div className="mt-10">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-500">
+        <h3 className="text-sm font-medium tracking-wide text-zinc-500 dark:text-zinc-500">
           Stack &amp; outils
         </h3>
         <ul className="mt-4 flex flex-wrap gap-2">
           {SKILLS.map((skill) => (
             <li
               key={skill}
-              className="rounded-full border border-zinc-200 px-4 py-1.5 text-sm text-zinc-700 dark:border-zinc-800 dark:text-zinc-300"
+              className="rounded-full border border-zinc-200 px-4 py-1.5 text-sm text-zinc-700 transition-colors hover:border-orange-300 hover:text-orange-700 dark:border-zinc-800 dark:text-zinc-300 dark:hover:border-orange-400/40 dark:hover:text-orange-300"
             >
               {skill}
             </li>

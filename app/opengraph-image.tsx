@@ -25,7 +25,7 @@ export default function Image() {
           style={{
             display: "flex",
             fontSize: 32,
-            color: "#818cf8",
+            color: "#fb923c",
             fontWeight: 600,
           }}
         >

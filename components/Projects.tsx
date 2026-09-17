@@ -1,4 +1,5 @@
 import { getGithubRepos, GITHUB_PROFILE_URL } from "@/lib/github";
+import { ArrowRightIcon, StarIcon } from "@/components/icons";
 
 export default async function Projects() {
   const repos = await getGithubRepos();
@@ -7,7 +8,7 @@ export default async function Projects() {
     <section id="projects" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
             Projets GitHub
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
@@ -18,9 +19,10 @@ export default async function Projects() {
           href={GITHUB_PROFILE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-medium text-indigo-600 hover:underline dark:text-indigo-400"
+          className="group inline-flex items-center gap-1.5 text-sm font-medium text-orange-700 dark:text-orange-400"
         >
-          Voir tout sur GitHub →
+          Voir tout sur GitHub
+          <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
         </a>
       </div>
 
@@ -45,9 +47,9 @@ export default async function Projects() {
               href={repo.htmlUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col rounded-2xl border border-zinc-200 p-6 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
+              className="group flex flex-col rounded-2xl border border-zinc-200 p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-lg hover:shadow-zinc-900/5 dark:border-zinc-800 dark:hover:border-zinc-600 dark:hover:shadow-black/40"
             >
-              <h3 className="font-semibold text-zinc-950 group-hover:underline dark:text-zinc-50">
+              <h3 className="font-display font-medium text-zinc-950 group-hover:text-orange-700 dark:text-zinc-50 dark:group-hover:text-orange-400">
                 {repo.name}
               </h3>
               <p className="mt-2 flex-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
@@ -55,7 +57,10 @@ export default async function Projects() {
               </p>
               <div className="mt-4 flex items-center gap-4 text-xs text-zinc-500 dark:text-zinc-500">
                 {repo.language && <span>{repo.language}</span>}
-                <span>★ {repo.stars}</span>
+                <span className="inline-flex items-center gap-1">
+                  <StarIcon className="h-3.5 w-3.5" />
+                  {repo.stars}
+                </span>
               </div>
             </a>
           ))}

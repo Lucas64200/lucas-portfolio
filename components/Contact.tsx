@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { GITHUB_PROFILE_URL } from "@/lib/github";
+import { GithubIcon, LinkedinIcon, MailIcon } from "@/components/icons";
 
 const CONTACT_EMAIL = "monvoisin.lucas@gmail.com";
 // TODO(Lucas): remplace par ton vrai lien LinkedIn.
@@ -49,27 +51,38 @@ export default function Contact() {
 
   return (
     <section id="contact" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
-      <h2 className="text-2xl font-bold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
+      <h2 className="font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
         Contact
       </h2>
       <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
         Un projet d&apos;automatisation ou d&apos;outil IA en tête ? Discutons-en.
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-4 text-sm">
+      <div className="mt-6 flex flex-wrap gap-3 text-sm">
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
         >
+          <MailIcon className="h-4 w-4" />
           {CONTACT_EMAIL}
         </a>
         <a
           href={LINKEDIN_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
         >
+          <LinkedinIcon className="h-4 w-4" />
           LinkedIn
+        </a>
+        <a
+          href={GITHUB_PROFILE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-2 font-medium text-zinc-950 transition-colors hover:border-zinc-400 hover:text-orange-700 dark:border-zinc-700 dark:text-zinc-50 dark:hover:border-zinc-500 dark:hover:text-orange-400"
+        >
+          <GithubIcon className="h-4 w-4" />
+          GitHub
         </a>
       </div>
 
@@ -83,7 +96,7 @@ export default function Contact() {
             name="name"
             type="text"
             required
-            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none focus:border-zinc-500 dark:border-zinc-700"
+            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none transition-colors focus:border-orange-600 focus:ring-2 focus:ring-orange-600/30 dark:border-zinc-700 dark:focus:border-orange-400 dark:focus:ring-orange-400/20"
           />
         </div>
         <div>
@@ -95,7 +108,7 @@ export default function Contact() {
             name="email"
             type="email"
             required
-            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none focus:border-zinc-500 dark:border-zinc-700"
+            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none transition-colors focus:border-orange-600 focus:ring-2 focus:ring-orange-600/30 dark:border-zinc-700 dark:focus:border-orange-400 dark:focus:ring-orange-400/20"
           />
         </div>
         <div>
@@ -107,14 +120,14 @@ export default function Contact() {
             name="message"
             required
             rows={4}
-            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none focus:border-zinc-500 dark:border-zinc-700"
+            className="mt-1 w-full rounded-lg border border-zinc-300 bg-transparent px-4 py-2 text-sm outline-none transition-colors focus:border-orange-600 focus:ring-2 focus:ring-orange-600/30 dark:border-zinc-700 dark:focus:border-orange-400 dark:focus:ring-orange-400/20"
           />
         </div>
 
         <button
           type="submit"
           disabled={status === "sending"}
-          className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+          className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:scale-[1.03] hover:bg-zinc-800 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
         >
           {status === "sending" ? "Envoi..." : "Envoyer"}
         </button>
