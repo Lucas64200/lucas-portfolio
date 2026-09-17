@@ -11,7 +11,7 @@ export default function Nav() {
     <header className="border-b border-line">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
         <a href="#top" className="flex items-center gap-2.5">
-          <Blob className="h-5 w-5 text-ketchup drop-shadow-[0_0_8px_rgba(255,59,59,0.85)]" />
+          <Blob className="h-5 w-5 text-ketchup drop-shadow-[0_0_8px_rgba(124,58,237,0.85)]" />
           <span className="font-display text-lg font-semibold text-ink">
             Ketchup Mayo
           </span>

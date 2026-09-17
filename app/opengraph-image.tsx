@@ -15,8 +15,8 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          background: "#120d0a",
-          color: "#f7f1e8",
+          background: "#0b0a12",
+          color: "#f2f0f7",
           padding: "80px",
           fontFamily: "sans-serif",
         }}
@@ -38,7 +38,7 @@ export default function Image() {
             marginTop: 40,
             fontSize: 30,
             fontWeight: 700,
-            color: "#ff3b3b",
+            color: "#a78bfa",
           }}
         >
           {SITE_NAME}

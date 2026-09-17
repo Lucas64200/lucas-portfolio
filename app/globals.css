@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #120d0a;
-  --cream-raised: #1c150f;
-  --ink: #f7f1e8;
-  --ink-soft: #b3a290;
-  --ketchup: #ff3b3b;
-  --ketchup-deep: #ff6b4a;
-  --ketchup-foreground: #120d0a;
-  --mustard: #ffcc33;
-  --line: rgba(247, 241, 232, 0.14);
+  --cream: #0b0a12;
+  --cream-raised: #14121f;
+  --ink: #f2f0f7;
+  --ink-soft: #a6a0b8;
+  --ketchup: #7c3aed;
+  --ketchup-deep: #a78bfa;
+  --ketchup-foreground: #ffffff;
+  --mustard: #c4b5fd;
+  --line: rgba(242, 240, 247, 0.14);
 }
 
 @theme inline {
