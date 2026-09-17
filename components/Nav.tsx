@@ -6,21 +6,15 @@ const LINKS = [
 
 export default function Nav() {
   return (
-    <div className="sticky top-4 z-50 flex justify-center px-4">
-      <nav className="flex w-full max-w-3xl flex-wrap items-center justify-between gap-3 rounded-full border-2 border-bg-raised bg-bg/95 px-3 py-2 shadow-[0_8px_30px_rgba(0,0,0,0.4)] backdrop-blur">
-        <a
-          href="#top"
-          className="rounded-full bg-ketchup px-4 py-2 font-display text-lg font-bold text-ketchup-foreground"
-        >
-          Ketchup Mayo
+    <header className="border-b border-line">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+        <a href="#top" className="text-lg font-bold text-ink">
+          Ketchup<span className="text-ketchup">Mayo</span>
         </a>
-        <ul className="hidden gap-1 text-sm font-semibold text-ink sm:flex">
+        <ul className="hidden gap-8 text-sm font-medium text-ink-soft sm:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="block rounded-full px-4 py-2 transition-colors hover:bg-bg-raised hover:text-mayo"
-              >
+              <a href={link.href} className="transition-colors hover:text-ink">
                 {link.label}
               </a>
             </li>
@@ -28,11 +22,11 @@ export default function Nav() {
         </ul>
         <a
           href="#contact"
-          className="rounded-full bg-mayo px-4 py-2 text-sm font-bold text-mayo-foreground transition-transform hover:scale-105"
+          className="rounded-full bg-ketchup px-5 py-2 text-sm font-semibold text-ketchup-foreground transition-opacity hover:opacity-90"
         >
           Contact
         </a>
       </nav>
-    </div>
+    </header>
   );
 }

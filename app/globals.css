@@ -1,31 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #15120e;
-  --bg-raised: #201b14;
-  --ink: #f8f3e8;
-  --ink-soft: #b9ad98;
-  --ketchup: #e63328;
-  --ketchup-foreground: #f8f3e8;
-  --mayo: #f5c518;
-  --mayo-foreground: #15120e;
+  --bg: #121110;
+  --ink: #f6f3ee;
+  --ink-soft: #948d84;
+  --ketchup: #d9291d;
+  --ketchup-foreground: #f6f3ee;
+  --mayo: #e8b923;
+  --line: #2b2926;
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-bg-raised: var(--bg-raised);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-ketchup: var(--ketchup);
   --color-ketchup-foreground: var(--ketchup-foreground);
   --color-mayo: var(--mayo);
-  --color-mayo-foreground: var(--mayo-foreground);
-  --font-sans: var(--font-jakarta);
-  --font-display: var(--font-baloo);
+  --color-line: var(--line);
+  --font-sans: var(--font-hanken);
 }
 
-/* This world is dark by commitment: a condiment-brand agency site at full
-   volume, not a light/dark toggle. */
+/* Committed dark world, not a light/dark toggle. */
 
 body {
   background: var(--bg);
@@ -39,9 +35,9 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--mayo);
+  outline: 2px solid var(--ketchup);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 html {
@@ -67,12 +63,10 @@ html {
   background: color-mix(in srgb, var(--ink) 35%, transparent);
 }
 
-/* Hero focal moment: the mascots bounce in and settle, then the tags
-   scatter into place like they were just squeezed onto the page. */
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(26px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -84,61 +78,27 @@ html {
   animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes squeeze-in {
-  from {
-    opacity: 0;
-    transform: scale(0.6) rotate(var(--rot, 0deg));
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) rotate(var(--rot, 0deg));
-  }
-}
-
-.squeeze-in {
-  animation: squeeze-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes bob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.bob {
-  animation: bob 4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-}
-
-/* Stagger reveal for list-like groups. */
 .stagger-item {
   opacity: 0;
-  transform: translateY(20px) rotate(var(--rot, 0deg));
+  transform: translateY(18px);
   transition:
     opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--i, 0) * 90ms);
+  transition-delay: calc(var(--i, 0) * 80ms);
 }
 
 .scroll-group.is-visible .stagger-item {
   opacity: 1;
-  transform: rotate(var(--rot, 0deg));
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .squeeze-in {
-    animation: none;
-  }
-  .bob {
+  .reveal {
     animation: none;
   }
   .stagger-item {
     transition: none;
     opacity: 1;
-    transform: rotate(var(--rot, 0deg));
+    transform: none;
   }
 }
