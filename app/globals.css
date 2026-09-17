@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #fbf2e3;
-  --cream-raised: #f4e6cd;
-  --ink: #241505;
-  --ink-soft: #6b5a45;
-  --ketchup: #d62828;
-  --ketchup-deep: #a11d1d;
-  --ketchup-foreground: #fbf2e3;
-  --mustard: #d8a93a;
-  --line: rgba(36, 21, 5, 0.14);
+  --cream: #120d0a;
+  --cream-raised: #1c150f;
+  --ink: #f7f1e8;
+  --ink-soft: #b3a290;
+  --ketchup: #ff3b3b;
+  --ketchup-deep: #ff6b4a;
+  --ketchup-foreground: #120d0a;
+  --mustard: #ffcc33;
+  --line: rgba(247, 241, 232, 0.14);
 }
 
 @theme inline {
@@ -26,7 +26,7 @@
   --font-display: var(--font-fraunces);
 }
 
-/* A committed light world: warm paper stock, not a light/dark toggle. */
+/* A committed dark world: neon signage at night, not a light/dark toggle. */
 
 body {
   background: var(--cream);
@@ -40,7 +40,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--ketchup-deep);
+  outline: 2px solid var(--mustard);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -66,6 +66,24 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: color-mix(in srgb, var(--ink) 35%, transparent);
+}
+
+/* Neon glow utilities: a soft colored bloom, the way a tube sign lights the
+   wall behind it. Used sparingly, on the elements that should read as lit. */
+.glow-ketchup {
+  box-shadow:
+    0 0 1px 1px color-mix(in srgb, var(--ketchup) 70%, transparent),
+    0 0 28px 4px color-mix(in srgb, var(--ketchup) 45%, transparent);
+}
+
+.glow-mustard {
+  box-shadow:
+    0 0 1px 1px color-mix(in srgb, var(--mustard) 70%, transparent),
+    0 0 28px 4px color-mix(in srgb, var(--mustard) 40%, transparent);
+}
+
+.text-glow-mustard {
+  text-shadow: 0 0 22px color-mix(in srgb, var(--mustard) 65%, transparent);
 }
 
 /* The one orchestrated moment: the hero's blob, headline, and actions settle

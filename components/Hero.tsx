@@ -13,10 +13,10 @@ export default function Hero() {
       enterLabel="Découvrir"
       background={<PortalField />}
       style={{
-        "--gp-paper": "#fbf2e3",
-        "--gp-ink": "#241505",
-        "--gp-field": "#d62828",
-        "--gp-foreground": "#fbf2e3",
+        "--gp-paper": "#120d0a",
+        "--gp-ink": "#ffcc33",
+        "--gp-field": "#ff3b3b",
+        "--gp-foreground": "#f7f1e8",
       }}
     >
       <div className="mx-auto max-w-2xl">
@@ -33,7 +33,7 @@ export default function Hero() {
           <BorderBeam size="sm" colorVariant="sunset" theme="dark">
             <a
               href="#contact"
-              className="block rounded-full bg-cream px-7 py-3.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+              className="glow-mustard block rounded-full bg-cream px-7 py-3.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
             >
               Démarrer un projet
             </a>

@@ -56,7 +56,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden border-t border-line px-6 py-20 sm:py-28">
       <Blob
-        className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 text-ketchup/10 blur-2xl"
+        className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 text-ketchup/25 blur-3xl"
         aria-hidden
       />
       <div className="relative mx-auto grid max-w-5xl gap-12 sm:grid-cols-[1fr_1.2fr]">
@@ -127,7 +127,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="rounded-full bg-ketchup px-7 py-3.5 text-sm font-medium text-ketchup-foreground transition-colors hover:bg-ketchup-deep disabled:cursor-not-allowed disabled:opacity-50"
+            className="glow-ketchup rounded-full bg-ketchup px-7 py-3.5 text-sm font-medium text-ketchup-foreground transition-colors hover:bg-ketchup-deep disabled:cursor-not-allowed disabled:opacity-50"
           >
             {status === "sending" ? "Envoi..." : "Envoyer"}
           </button>

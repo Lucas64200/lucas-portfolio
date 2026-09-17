@@ -1,11 +1,11 @@
 const SERVICES = [
   {
-    swatch: "bg-ketchup",
+    swatch: "bg-ketchup glow-ketchup",
     title: "Automatisation de processus métier",
     text: "On branche l'IA sur vos tâches répétitives — saisie, tri, relances — pour vous rendre des heures chaque semaine.",
   },
   {
-    swatch: "bg-mustard",
+    swatch: "bg-mustard glow-mustard",
     title: "Assistants IA pour équipes commerciales",
     text: "Qualification de leads, messages de prospection, suivi client : un assistant connecté à votre CRM qui fait le premier jet.",
   },

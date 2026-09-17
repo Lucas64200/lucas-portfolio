@@ -45,7 +45,7 @@ export default async function Projects() {
                 href={repo.htmlUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col rounded-2xl border border-line bg-cream p-6 transition-colors hover:border-ketchup"
+                className="group flex flex-col rounded-2xl border border-line bg-cream-raised p-6 transition-all duration-300 hover:border-ketchup hover:shadow-[0_0_24px_2px_rgba(255,59,59,0.28)]"
               >
                 <h3 className="font-semibold text-ink group-hover:text-ketchup-deep">
                   {repo.name}
