@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
 
 export const alt = SITE_NAME;
 export const size = { width: 1200, height: 630 };
@@ -15,8 +15,8 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          background: "#121110",
-          color: "#f6f3ee",
+          background: "#fbf2e3",
+          color: "#241505",
           padding: "80px",
           fontFamily: "sans-serif",
         }}
@@ -24,35 +24,21 @@ export default function Image() {
         <div
           style={{
             display: "flex",
-            fontSize: 28,
-            textTransform: "uppercase",
-            letterSpacing: 4,
-            color: "#e8b923",
-            fontWeight: 700,
-          }}
-        >
-          {SITE_TAGLINE}
-        </div>
-        <div
-          style={{
-            display: "flex",
-            marginTop: 24,
             fontSize: 64,
-            fontWeight: 800,
-            lineHeight: 1.1,
+            fontWeight: 700,
+            lineHeight: 1.15,
             maxWidth: 900,
           }}
         >
-          On automatise le travail répétitif des entreprises à grands coups
-          d&apos;IA.
+          On automatise le travail répétitif de votre entreprise avec l&apos;IA.
         </div>
         <div
           style={{
             display: "flex",
             marginTop: 40,
-            fontSize: 28,
+            fontSize: 30,
             fontWeight: 700,
-            color: "#d9291d",
+            color: "#d62828",
           }}
         >
           {SITE_NAME}

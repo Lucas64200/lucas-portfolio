@@ -1,5 +1,3 @@
-import ScrollGroup from "@/components/ScrollGroup";
-
 type CaseStudy = {
   title: string;
   problem: string;
@@ -38,47 +36,41 @@ const CASE_STUDIES: CaseStudy[] = [
 
 export default function CaseStudies() {
   return (
-    <section id="missions" className="border-t border-line px-6 py-16 sm:py-24">
-      <div className="mx-auto max-w-4xl">
-        <h2 className="text-3xl font-extrabold text-ink sm:text-4xl">
+    <section id="missions" className="border-t border-line bg-cream-raised px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-5xl">
+        <h2 className="max-w-md font-display text-3xl font-semibold text-ink sm:text-4xl">
           Nos réalisations
         </h2>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft">
-          Quelques exemples représentatifs des missions menées — clients
-          anonymisés.
+        <p className="mt-4 max-w-xl text-ink-soft">
+          Quelques missions menées en freelance — clients anonymisés.
         </p>
 
-        <ScrollGroup className="mt-12 divide-y divide-line border-t border-line">
-          {CASE_STUDIES.map((study, i) => (
+        <div className="mt-14 divide-y divide-line">
+          {CASE_STUDIES.map((study) => (
             <div
               key={study.title}
-              style={{ "--i": i } as React.CSSProperties}
-              className="stagger-item grid gap-6 py-10 sm:grid-cols-[14rem_1fr]"
+              className="grid gap-6 py-10 first:pt-0 sm:grid-cols-[15rem_1fr]"
             >
-              <h3 className="text-xl font-bold text-ink">{study.title}</h3>
-              <dl className="grid gap-6 text-sm leading-6 text-ink-soft sm:grid-cols-3">
+              <h3 className="font-display text-xl font-semibold text-ink">
+                {study.title}
+              </h3>
+              <dl className="grid gap-5 text-[0.95rem] leading-relaxed text-ink-soft sm:grid-cols-3 sm:gap-8">
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-ketchup">
-                    Problème
-                  </dt>
-                  <dd className="mt-2">{study.problem}</dd>
+                  <dt className="font-medium text-ink">Le problème</dt>
+                  <dd className="mt-1">{study.problem}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-ketchup">
-                    Solution
-                  </dt>
-                  <dd className="mt-2">{study.solution}</dd>
+                  <dt className="font-medium text-ink">Ce qu&apos;on a fait</dt>
+                  <dd className="mt-1">{study.solution}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-ketchup">
-                    Résultat
-                  </dt>
-                  <dd className="mt-2">{study.result}</dd>
+                  <dt className="font-medium text-ink">Le résultat</dt>
+                  <dd className="mt-1">{study.result}</dd>
                 </div>
               </dl>
             </div>
           ))}
-        </ScrollGroup>
+        </div>
       </div>
     </section>
   );
